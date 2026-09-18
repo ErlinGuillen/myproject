@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>My Spanish Learning Page</title>
+    <style>
+        /* Navigation Bar */
+        nav {
+            background: hsl(210, 100%, 85%);
+            color: hsl(210, 100%, 15%);
+            padding: 22.5px 22.5px 0px 22.5px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+
+        nav h2 {
+            margin: 0px 0px 11.25px 0px;
+            font-size: 2.5rem;
+            line-height: 1.25;
+        }
+
+        nav ul {
+            margin: 0px;
+            list-style: none;
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12.5px;
+        }
+
+        .nav-button {
+            background: none;
+            border: none;
+            font-family: inherit;
+            cursor: pointer;
+            font-size: 1.25rem;
+            border-radius: 8px;
+            padding: 14px 28px;
+        }
+
+        nav button:hover {
+            background-color: hsla(210, 50%, 50%, 0.20);
+        }
+
+        /* Footer */
+        footer {
+            background-color: hsl(210, 50%, 25%);
+            color: white;
+            text-align: center;
+            padding: 30px 30px;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 90px 20px;
+            text-align: center;
+            background: hsl(210, 100%, 90%);
+        }
+
+        .hero-subtitle {
+            font-size: 1.01rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .hero h1 {
+            font-size: 3.45rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+        }
+
+        .hero-button {
+            background-color: hsl(210, 50%, 25%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 15px 31px;
+            font-size: 1.25rem;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .hero-button:hover {
+            opacity: 0.85;
+        }
+
+        /* Features Section */
+        .hero-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 25px auto;
+            padding: 0 22.5px;
+        }
+
+        .hero-card {
+            background-color: white;
+            padding: 45px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .hero-card h2 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .hero-card p {
+            line-height: 1.5;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            max-width: 1100px;
+            margin: 25px auto 0;
+            padding: 0 22.5px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 1.25rem;
+        }
+
+        .breadcrumb-button {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .breadcrumb-button:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-current {
+            color: hsl(210, 50%, 30%);
+            font-weight: bold;
+        }
+
+        .breadcrumb-separator {
+            color: hsl(210, 30%, 45%);
+        }
+
+        /* Learning Sections */
+        .spanish-collection {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 25px auto;
+            padding: 0 22.5px;
+        }
+
+        .spanish-collection-section {
+            background-color: white;
+            padding: 45px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .spanish-collection-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+        }
+
+        .spanish-collection-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .spanish-collection-section li {
+            line-height: 25px;
+            font-size: 1rem;
+        }
+
+        .spanish-collection-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        /* Verb Navigation Cards */
+        .spanish-collection-button {
+            background: white;
+            border: none;
+            padding: 45px;
+            width: 100%;
+            max-width: 500px;
+            text-align: left;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .spanish-collection-button:hover {
+            background-color: hsl(210, 100%, 90%);
+        }
+
+        .spanish-collection-button h2 {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+        }
+
+        .spanish-collection-button p {
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+
+
+        /* Mobile screens */
+        @media (max-width: 600px) {
+
+            /* Navigation Bar */
+            nav {
+                position: static;
+                display: block;
+                padding: 22.5px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 5px;
+            }
+
+            .nav-button {
+                font-size: 1.125rem;
+                border-radius: 8px;
+                padding: 9.33px 28px;
+            }
+
+            main {
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 0px;
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: 90px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                line-height: 1;
+            }
+
+            .hero-description {
+                max-width: 361px;
+                font-size: 1.1rem;
+            }
+
+            .hero-button {
+                font-size: 1.125rem;
+                width: 100%;
+                max-width: 350px;
+                padding: 14px 28px;
+            }
+
+            .hero-card h2 {
+                margin-bottom: 7.5px;
+                font-size: 1.8rem;
+            }
+
+            .hero-card p {
+                line-height: 1.25;
+            }
+
+            /* Breadcrumbs */
+            .breadcrumbs {
+                margin-top: 20px;
+                padding: 0 22.5px;
+                font-size: 1.25rem;
+                gap: 16px;
+            }
+
+            .breadcrumb-button {
+                font-size: 1.25rem;
+            }
+
+            /* Learning Sections */
+            .spanish-collection-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+
+            .spanish-collection-section h3 {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+
+            .spanish-collection-section li {
+                line-height: 25px;
+                font-size: 1rem;
+            }
+
+            .spanish-collection-button {
+                padding: 35px;
+            }
+
+            .spanish-collection-button h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <h2>Codename - v1.3.3</h2>
+        <ul>
+            <li>
+                <button type="button" class="nav-button" onclick="showPage('home')">
+                    Home
+                </button>
+            </li>
+
+            <li>
+                <button type="button" class="nav-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+            </li>
+
+            <li>
+                <button type="button" class="nav-button" onclick="showPage('settings')">
+                    ???
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- ==================== HOME ==================== -->
+        <section id="home" class="page">
+            <!-- Hero Section -->
+            <div class="hero">
+                <p class="hero-subtitle">
+                    Learn Spanish • One Step at a Time
+                </p>
+                <h1>
+                    Start Learning Spanish
+                </h1>
+                <p class="hero-description">
+                    Learn basic Spanish verbs, useful expressions, and everyday vocabulary
+                    in a simple and easy-to-follow way.
+                </p>
+                <button type="button" class="hero-button" onclick="showPage('collection')">
+                    Start Learning
+                </button>
+
+            </div>
+
+            <!-- Features Section -->
+            <div class="hero-cards">
+                <div class="hero-card">
+                    <h2>Spanish Verbs</h2>
+                    <p>
+                        Learn important Spanish verbs and when to use them.
+                    </p>
+                </div>
+                <div class="hero-card">
+                    <h2>Useful Expressions</h2>
+                    <p>
+                        Practice common phrases for everyday conversations.
+                    </p>
+                </div>
+                <div class="hero-card">
+                    <h2>Vocabulary</h2>
+                    <p>
+                        Build your Spanish vocabulary one word at a time.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SPANISH COLLECTION ==================== -->
+        <section id="collection" class="page">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-current">
+                    Spanish Collection
+                </span>
+            </div>
+            <div class="spanish-collection">
+                <!-- Interjections -->
+                <button type="button" class="spanish-collection-button" onclick="showPage('interjection')">
+                    <h2>Interjections</h2>
+                    <p>
+                        An interjection is a word or short phrase that expresses a strong or sudden feeling, reaction,
+                        or emotion.
+                    </p>
+                </button>
+
+                <!-- Nouns -->
+                <button type="button" class="spanish-collection-button" onclick="showPage('noun')">
+                    <h2>Nouns</h2>
+                    <p>
+                        A noun is a word that names a person, place, thing, animal, or idea.
+                    </p>
+                </button>
+
+                <button type="button" class="spanish-collection-button" onclick="showPage('verb')">
+                    <h2>Verbs</h2>
+                    <p>
+                        A verb is a word that tells us about an action, state, or condition.
+                    </p>
+                </button>
+
+                <button type="button" class="spanish-collection-button" onclick="showPage('adverb')">
+                    <h2>Adverbs</h2>
+                    <p>
+                        words that describe or modify a verb, adjective, another adverb, or the whole sentence.
+                    </p>
+                </button>
+
+                <button type="button" class="spanish-collection-button" onclick="showPage('phrase')">
+                    <h2>Phrases</h2>
+                    <p>
+                        a group of words that work together to express an idea or meaning, but usually does not contain
+                        a complete subject + verb combination.
+                    </p>
+                </button>
+
+                <button type="button" class="spanish-collection-button" onclick="showPage('adjective')">
+                    <h2>Adjectives</h2>
+                    <p>
+                        a word that describes or gives information about a noun or pronoun.
+                    </p>
+                </button>
+            </div>
+        </section>
+
+        <!-- ==================== INTERJECTIONS ==================== -->
+        <section id="interjection" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Interjections
+                </span>
+            </div>
+
+            <div class="spanish-collection">
+                <div class="spanish-collection-section">
+                    <h2>
+                        Expression
+                    </h2>
+                    <h3>
+                        a word, phrase, or group of words used to communicate an idea, feeling, thought, or response.
+                    </h3>
+                    <ul>
+                        <li>Hello / Hola</li>
+                        <li>Goodbye - Adiós</li>
+                    </ul>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== NOUNS ==================== -->
+        <section id="noun" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Nouns
+                </span>
+            </div>
+
+            <div class="spanish-collection">
+                <div class="spanish-collection-section">
+                    <h2>
+                        Profession
+                    </h2>
+                    <h3>
+                        a type of work that usually requires specialized education, training, or skills.
+                    </h3>
+                    <ul>
+                        <li>Student = el/la estudiante</li>
+                        <li>Teacher = el profesor/la profesora</li>
+                        <li>Doctor = el doctor/la doctora</li>
+                        <li>Engineer = el ingeniero/la ingeniera</li>
+                    </ul>
+                    </ul>
+                </div>
+
+                <div class="spanish-collection-section">
+                    <h2>
+                        Country
+                    </h2>
+                    <h3>
+                        A country is a nation or territory with its own government, laws, and borders.
+                    </h3>
+                    <ul>
+                        <li>Argentina / Argentina</li>
+                        <li>Canada / Canadá</li>
+                        <li>Spain / España</li>
+                        <li>United States / Estados Unidos</li>
+                        <li>Mexico / México</li>
+                        <li>United Kingdom / Reino Unido</li>
+                    </ul>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== VERBS ==================== -->
+        <section id="verb" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Verbs
+                </span>
+            </div>
+
+            <div class="spanish-collection">
+                <button type="button" class="spanish-collection-button" onclick="showPage('ser')">
+                    <h2>Ser</h2>
+                    <p>
+                        Learn when to use the Spanish verb "ser."
+                    </p>
+                </button>
+
+
+                <button type="button" class="spanish-collection-button" onclick="showPage('llamarse')">
+                    <h2>Llamarse</h2>
+                    <p>
+                        Learn when to use the Spanish verb "tener."
+                    </p>
+                </button>
+
+                <button type="button" class="spanish-collection-button" onclick="showPage('tener')">
+                    <h2>Tener</h2>
+                    <p>
+                        Learn when to use the Spanish verb "tener."
+                    </p>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- ==================== SER ==================== -->
+        <section id="ser" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <button type="button" class="breadcrumb-button" onclick="showPage('verb')">
+                    Verbs
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Ser
+                </span>
+            </div>
+
+            <div class="spanish-collection">
+                <div class="spanish-collection-section">
+                    <h2>
+                        When to Use the Spanish Verb "Ser"
+                    </h2>
+                    <h3>
+                        A simple way to remember when to use the Spanish verb "ser."
+                    </h3>
+                    <ul>
+                        <li>Name - I'm Erlin / Soy Erlin</li>
+                        <li>Identity - He is Elkin / Él es Elkin</li>
+                        <li>Professions - I'm a student / Soy estudiante</li>
+                        <li>Nationalities - I'm Mexican / Soy mexicano</li>
+                        <li>Countries of origin - I'm from Spain / Soy de España</li>
+                        <li>Relationships - I'm his father / Soy su padre</li>
+                        <li>People - He is a man / Él es un hombre</li>
+                        <li>Physical Attributes - He is tall / Él es alto</li>
+                        <li>Personality Traits - I'm happy / Soy alegre</li>
+                        <li>Characteristic (Using Home) - The house is big / La casa es grande</li>
+                        <li>Dates - Is it March 4th? / ¿Es cuatro de marzo?</li>
+                        <li>Events - When is your birthday? / ¿Cuándo es tu cumpleaños?</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== LLAMARSE ==================== -->
+        <section id="llamarse" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <button type="button" class="breadcrumb-button" onclick="showPage('verb')">
+                    Verbs
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Llamarse
+                </span>
+            </div>
+            <div class="spanish-collection">
+                <div class="spanish-collection-section">
+                    <h2>
+                        When to Use the Spanish Verb "Llamarse"
+                    </h2>
+                    <h3>
+                        A simple way to remember when to use the Spanish verb "llamarse."
+                    </h3>
+                    <ul>
+                        <li>
+                            Introducing yourself or name - My name is John / Me llamo John
+                        </li>
+                        <li>
+                            Identity - His name is Elkin / Él se llama Elkin
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TENER ==================== -->
+        <section id="tener" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <button type="button" class="breadcrumb-button" onclick="showPage('verb')">
+                    Verbs
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Tener
+                </span>
+            </div>
+
+            <div class="spanish-collection">
+                <div class="spanish-collection-section">
+                    <h2>
+                        When to Use the Spanish Verb "Tener"
+                    </h2>
+                    <h3>
+                        A simple way to remember when to use the Spanish verb "tener."
+                    </h3>
+                    <ul>
+                        <li>
+                            Relationships - I have a brother / Tengo un hermano
+                        </li>
+                        <li>
+                            Specific body features - He has light eyes / Él tiene ojos claros
+                        </li>
+                        <li>
+                            Possession (Rooms) - I have a small apartment / Tengo un apartamento pequeño
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ADVERBS ==================== -->
+        <section id="adverb" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Adverbs
+                </span>
+            </div>
+
+            <div class="spanish-collection">
+                <div class="spanish-collection-section">
+                    <h2>
+                        Question
+                    </h2>
+                    <h3>
+                        a sentence or expression used to ask for information, an answer, or clarification.
+                    </h3>
+                    <ul>
+                        <li>What is your brother like? = ¿Cómo es tu hermano?</li>
+                        <li>Where is your house? = ¿Dónde está tu casa?</li>
+                        <li>What is a computer? = ¿Qué es una computadora?</li>
+                    </ul>
+                    </ul>
+                </div>
+
+                <div class="spanish-collection-section">
+                    <h2>
+                        Expression
+                    </h2>
+                    <h3>a word, phrase, or group of words used to communicate an idea, feeling, thought, or response.
+                    </h3>
+                    <ul>
+                        <li>Yes, I am a student / Sí, soy estudiante</li>
+                        <li> No, I don't have a dog / No, no tengo un perro</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PHRASES ==================== -->
+        <section id="phrase" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Phrases
+                </span>
+            </div>
+
+            <div class="spanish-collection">
+                <button type="button" class="spanish-collection-button" onclick="showPage('questionphrase')">
+                    <h2>Question Phrases</h2>
+                    <p>
+                        groups of words used to ask for information, an answer, or clarification.
+                    </p>
+                </button>
+
+                <button type="button" class="spanish-collection-button" onclick="showPage('socialphrase')">
+                    <h2>Social Phrases</h2>
+                    <p>
+                        a group of words used in social interactions to communicate politely with other people.
+                    </p>
+                </button>
+
+                <button type="button" class="spanish-collection-button" onclick="showPage('responsephrase')">
+                    <h2>Response Phrases</h2>
+                    <p>
+                        a group of words used to reply or react to what another person says.
+                    </p>
+                </button>
+            </div>
+        </section>
+
+        <!-- ==================== QUESTION PHRASES ==================== -->
+        <section id="questionphrase" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <button type="button" class="breadcrumb-button" onclick="showPage('phrase')">
+                    Phrases
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Question Phrases
+                </span>
+            </div>
+
+            <div class="spanish-collection">
+                <div class="spanish-collection-section">
+                    <h2>
+                        What’s your name?
+                    </h2>
+                    <h3>
+                        It asks for a person’s name/identity.
+                    </h3>
+                </div>
+
+                <div class="spanish-collection-section">
+                    <h2>
+                        Where are you from?
+                    </h2>
+                    <h3>
+                        It asks about a person's country, city, or place of origin.
+                    </h3>
+                </div>
+
+                <div class="spanish-collection-section">
+                    <h2>
+                        What do you do?
+                    </h2>
+                    <h3>
+                        It asks about a person’s profession or occupation.
+                    </h3>
+                </div>
+
+                <div class="spanish-collection-section">
+                    <h2>
+                        And you?
+                    </h2>
+                    <h3>
+                        a short question used to ask the other person the same information.
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SOCIAL PHRASES ==================== -->
+        <section id="socialphrase" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <button type="button" class="breadcrumb-button" onclick="showPage('phrase')">
+                    Phrases
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Social Phrases
+                </span>
+            </div>
+
+            <div class="spanish-collection">
+                <div class="spanish-collection-section">
+                    <h2>
+                        Nice to meet you
+                    </h2>
+                    <h3>
+                        a polite expression used when you meet someone for the first time.
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== RESPONSE PHRASES ==================== -->
+        <section id="responsephrase" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <button type="button" class="breadcrumb-button" onclick="showPage('phrase')">
+                    Phrases
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Response Phrases
+                </span>
+            </div>
+
+            <div class="spanish-collection">
+                <div class="spanish-collection-section">
+                    <h2>
+                        Me too
+                    </h2>
+                    <h3>
+                        a short phrase used to agree that you have the same feeling, opinion, or experience.
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ADJECTIVES ==================== -->
+        <section id="adjective" class="page">
+            <div class="breadcrumbs">
+                <button type="button" class="breadcrumb-button" onclick="showPage('collection')">
+                    Spanish Collection
+                </button>
+                <span class="breadcrumb-separator">
+                    →
+                </span>
+                <span class="breadcrumb-current">
+                    Adjectives
+                </span>
+            </div>
+
+            <div class="spanish-collection">
+                <div class="spanish-collection-section">
+                    <h2>
+                        Nationality
+                    </h2>
+                    <h3>
+                        the country that a person is from or is connected to as a citizen or national.
+                    </h3>
+                    <ul>
+                        <li>argentino/a = Argentinean</li>
+                        <li>británico/a = British</li>
+                        <li>canadiense = Canadian</li>
+                        <li>español/a = Spanish</li>
+                        <li>Americano/a = American</li>
+                        <li>mexicano/a = Mexican</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; 2026 My Spanish Learning Page. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId, updateHistory = true) {
+
+            // Hide all pages
+            const pages = document.querySelectorAll(".page");
+
+            pages.forEach(function (page) {
+                page.classList.remove("active");
+            });
+
+            // Find the selected page
+            const selectedPage = document.getElementById(pageId);
+
+            if (!selectedPage) {
+                return;
+            }
+
+            // Display the selected page
+            selectedPage.classList.add("active");
+
+            // Update browser URL and history
+            if (updateHistory) {
+
+                history.pushState(
+                    { page: pageId },
+                    "",
+                    "#" + pageId
+                );
+
+            }
+
+            // Scroll to the top
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+        // Handle browser Back and Forward buttons
+        window.addEventListener("popstate", function (event) {
+
+            const pageId =
+                event.state?.page ||
+                location.hash.substring(1) ||
+                "home";
+
+            showPage(pageId, false);
+
+        });
+
+        // Show the correct page when the website loads
+        const initialPage =
+            location.hash.substring(1) || "home";
+
+        showPage(
+            document.getElementById(initialPage)
+                ? initialPage
+                : "home",
+            false
+        );
+
+    </script>
+</body>
+
+</html>
